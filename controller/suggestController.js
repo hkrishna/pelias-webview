@@ -35,7 +35,7 @@ module.exports = function( req, res, next ){
 
 // Build elasticsearch query object
 function buildSuggestCommand( req )
-{
+{ 
   var cmd = {
     'pelias' : {
       'text' : req.query.input,

@@ -123,6 +123,7 @@ app.controller( 'MapIndexController', function( $rootScope, $scope, PeliasGeoJso
   }
 
   var setMapView = function(zoom) {
+    $rootScope.zoom = zoom;
     map.setView( $rootScope.geobase, zoom || 15 ); // London
   }
   navigator.geolocation.getCurrentPosition( function( pos ){
@@ -136,7 +137,9 @@ app.controller( 'MapIndexController', function( $rootScope, $scope, PeliasGeoJso
 
   map.on('moveend', function () {
     var pos = map.getCenter();
+    var zoom = map.getZoom();
     setMapCoords([pos.lat, pos.lng]);
+    setMapView(zoom);
   });
 
   $rootScope.$on( 'map.setView', function( ev, geo, zoom ){

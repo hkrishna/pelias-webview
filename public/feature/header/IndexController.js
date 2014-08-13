@@ -92,6 +92,7 @@ app.controller( 'HeaderIndexController', function( $rootScope, $scope, $http ) {
         input: $scope.search,
         datasets: $scope.queryDatasets.join(','),
         geobias: ( $rootScope.geobase || [] ).join(','),
+        zoom: $rootScope.zoom || 15,
         size: 15
       },
       headers: { 'Accept': 'application/json' }
